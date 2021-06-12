@@ -12,7 +12,7 @@ export class BackendService {
   UploadFile(formData: any): Observable<any> {
 
     //calling the server and manage the file
-    //Important: return a Url or string! =)
+    //Important: return a Url or string! =)     
     return this.httpClient.post("ypurAPIUrl/UploadFile", formData, {
       reportProgress: true,
       observe: 'events'

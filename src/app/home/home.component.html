@@ -1,10 +1,14 @@
-<p>Upload file example</p>
+<div class="container">
+    <h1 class="text-center">Upload file example</h1>
+    <hr>
+    <div class="ng-scope col-md-12 col-xs-12">
 
-<div class="ng-scope col-md-12 col-xs-12">
-
-    <input type="checkbox" (change)="AddFile()" title="I want to upload a file"> I want to upload a file
-
-    <div [hidden]="!addFile">
-        <app-FileUpload></app-FileUpload>
+        <input type="checkbox" (change)="AddFile()" title="I want to upload a file"> I want to upload a file
+        <div class="clear" [hidden]="!addFile">
+            <app-FileUpload></app-FileUpload>
+        </div>
+        <div class="col-md-6">
+            <p>{{fileUrl}}</p>
+        </div>
     </div>
 </div>

@@ -7,6 +7,7 @@ export class FileService {
   subjectName = new Subject<any>(); 
 
   urlDataFile(url: any) {
+    // console.log(url);
     this.subjectName.next({ data: url });
   }
 }

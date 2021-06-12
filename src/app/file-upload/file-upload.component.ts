@@ -15,11 +15,12 @@ export class FileUploadComponent implements OnInit {
   fileName: string | undefined;
   size:number | undefined;
   progress=0;
-  FileUploaded: boolean| undefined;
+  fileUploading: boolean=false;
   message: string| undefined;
   DocumentType:string| undefined;
   url:string| undefined;
   tittle="Upload a file!";
+  loading=false;
 
   uploadSub: Subscription | null | undefined;
 
@@ -35,6 +36,7 @@ export class FileUploadComponent implements OnInit {
 
 
   onFileSelected(event: any) {
+    this.fileUploading=true;
     const file: File = event.target.files[0];
 
     if (file) {
@@ -50,7 +52,7 @@ export class FileUploadComponent implements OnInit {
         finalize(() => {
           this.progress = 100;
           this.message = 'Upload Complete';
-          this.FileUploaded = true;
+          this.fileUploading = false;
         }),
 
         catchError(this.errorHandler)
@@ -66,7 +68,7 @@ export class FileUploadComponent implements OnInit {
 
         }
         else if (event.type === HttpEventType.Response) {
-          // console.log(event.body.dbPath);
+          //  console.log(event.body.dbPath);
           this.url = event.body.dbPath;
           this.service.urlDataFile(this.url);
         }

@@ -1,21 +1,25 @@
-<div class="container" ng-cloak translate-cloak>
-    <h4>{{tittle}}</h4>
+<div class="container col-md-12" ng-cloak translate-cloak>
+    <h4 class="col-md-6">{{tittle}}</h4>
     <div class="row" style="margin-bottom:15px;">
-        <div class="col-md-4">
-            <input type="file" class="file-input" accept=".pdf,.doc,.docx" (change)="onFileSelected($event)" data-ng-click="capture=true">
+        <div class="col-md-12">
+            <input type="file" class="btn" accept=".pdf,.doc,.docx" (change)="onFileSelected($event)" data-ng-click="capture=true">
 
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-12">
             <span class="upload" *ngIf="progress > 0">
           {{progress}}%
         </span>
             <span class="upload" *ngIf="message">
           {{message}}
         </span>
-            <span class="upload" *ngIf="message">
-          {{url}}
-        </span>
+            <!-- <span class="upload" *ngIf="message">
+          File Url: {{url}}
+        </span> -->
+
+            <div *ngIf="fileUploading" class="loading">
+                <div class="loader"></div>
+            </div>
         </div>
 
 

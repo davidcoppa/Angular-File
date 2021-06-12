@@ -24,12 +24,12 @@ export class HomeComponent implements OnInit,OnDestroy {
   }
 
   AddFile() {
-    console.log('Adding File');
+  //  console.log('Adding File');
     this.addFile=true;
     
     this.subscription = this.fileService.subjectName.subscribe((url: any) => {
-      this.fileUrl = url;
-      console.log(this.fileUrl);
+      this.fileUrl = "Your file was saved on: " +url.data;
+      // console.log(this.fileUrl);
     })
   }
 }
